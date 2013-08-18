@@ -1,0 +1,19 @@
+Object clone do(
+	dim := method(x, y, self setSlot("contents", List clone) ;
+for(i, 0, y -(1), setSlot("sub_contents", list) ;
+for(j, 0, x -(1), sub_contents append(0)) ;
+contents append(sub_contents)))
+
+	trans := method(setSlot("old_matrix", contents) ;
+setSlot("y", contents size) ;
+setSlot("x", contents at(0) size) ;
+dim(y, x) ;
+for(i, 0, y -(1), for(j, 0, x -(1), set(i, j, old_matrix at(i) at(j)))))
+
+	type := "Two_Dim"
+	get := method(x, y, contents at(y) at(x))
+
+	contents := list(list(0, 0, 0);, list(0, 0, 34););
+	set := method(x, y, set_content, contents atPut(y, contents at(y) atPut(x, set_content)))
+
+)

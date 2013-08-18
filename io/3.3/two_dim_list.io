@@ -23,3 +23,10 @@ Two_Dim set(1,2,34)
 Two_Dim contents println
 Two_Dim trans
 Two_Dim contents println
+
+// Thanks to bennadel.com for the author's solution
+filePath := "file.txt"
+dataFile := File open(filePath)
+dataFile write (Two_Dim serialized)
+dataFile close
+doFile(filePath) contents println
